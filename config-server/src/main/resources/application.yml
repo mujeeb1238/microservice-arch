@@ -25,6 +25,11 @@ spring:
      healthCheckInterval: 15s
      register: true
      prefer-ip-address: true
+     tags:
+       - config-server
+       - spring-cloud 
+     metadata:
+          version: 1.0           
   profiles:
     active: dev # Default to dev profile
 
@@ -75,3 +80,6 @@ management:
   endpoint:
     health:
       show-details: always
+  health:
+    consul:
+      enabled: true      

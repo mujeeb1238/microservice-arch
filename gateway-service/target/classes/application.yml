@@ -27,6 +27,13 @@ spring:
             - Path=/api/users/**
           filters:
             - StripPrefix=0
+        # ✅ New route for /api/v1/auth/**
+        - id: auth-service_route
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - StripPrefix=0            
   data:
     redis:
       host: localhost

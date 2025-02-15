@@ -1,4 +1,20 @@
 spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/auth_service_dev
+    username: dev_user
+    password: dev_password
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
   application:
     name: auth-service
   config:
@@ -19,20 +35,19 @@ spring:
 server:
   port: 9000
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info
+  endpoint:
+    health:
+      show-details: always
 jwt:
-  secret: ${JWT_SECRET:your-256-bit-secret-key-here}
+  secret: 5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437
   access-token:
     expiration: 900 # 15 minutes
   refresh-token:
     expiration: 604800 # 7 days
   id-token:
     expiration: 3600 # 1 hour
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,metrics
-  endpoint:
-    health:
-      show-details: always

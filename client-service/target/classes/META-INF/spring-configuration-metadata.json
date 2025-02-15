@@ -9,45 +9,41 @@
       "name": "service1.api",
       "type": "com.example.clientservice.config.ConfigurationProperties$Api",
       "sourceType": "com.example.clientservice.config.ConfigurationProperties",
-      "sourceMethod": "getApi()"
+      "sourceMethod": "public com.example.clientservice.config.ConfigurationProperties.Api getApi() "
     },
     {
       "name": "service1.cache",
       "type": "com.example.clientservice.config.ConfigurationProperties$Cache",
       "sourceType": "com.example.clientservice.config.ConfigurationProperties",
-      "sourceMethod": "getCache()"
+      "sourceMethod": "public com.example.clientservice.config.ConfigurationProperties.Cache getCache() "
     },
     {
       "name": "service1.feature",
       "type": "com.example.clientservice.config.ConfigurationProperties$Feature",
       "sourceType": "com.example.clientservice.config.ConfigurationProperties",
-      "sourceMethod": "getFeature()"
+      "sourceMethod": "public com.example.clientservice.config.ConfigurationProperties.Feature getFeature() "
     }
   ],
   "properties": [
     {
       "name": "service1.api.timeout",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.clientservice.config.ConfigurationProperties$Api",
-      "defaultValue": 0
+      "sourceType": "com.example.clientservice.config.ConfigurationProperties$Api"
     },
     {
       "name": "service1.cache.ttl",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.clientservice.config.ConfigurationProperties$Cache",
-      "defaultValue": 0
+      "sourceType": "com.example.clientservice.config.ConfigurationProperties$Cache"
     },
     {
       "name": "service1.feature.debug-mode",
       "type": "java.lang.Boolean",
-      "sourceType": "com.example.clientservice.config.ConfigurationProperties$Feature",
-      "defaultValue": false
+      "sourceType": "com.example.clientservice.config.ConfigurationProperties$Feature"
     },
     {
       "name": "service1.feature.enabled",
       "type": "java.lang.Boolean",
-      "sourceType": "com.example.clientservice.config.ConfigurationProperties$Feature",
-      "defaultValue": false
+      "sourceType": "com.example.clientservice.config.ConfigurationProperties$Feature"
     }
   ],
   "hints": []

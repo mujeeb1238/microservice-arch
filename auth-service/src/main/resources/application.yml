@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: auth-service
+  config:
+    import: "optional:configserver:http://localhost:8888"
+  profiles:
+    active: dev
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 15s
+        register: true
+        prefer-ip-address: true
+
+server:
+  port: 9000
+
+jwt:
+  secret: ${JWT_SECRET:your-256-bit-secret-key-here}
+  access-token:
+    expiration: 900 # 15 minutes
+  refresh-token:
+    expiration: 604800 # 7 days
+  id-token:
+    expiration: 3600 # 1 hour
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always

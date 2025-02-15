@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: client-service
+  config:
+    import: "optional:configserver:http://localhost:8888"
+  profiles:
+    active: dev
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 15s
+        register: true
+        prefer-ip-address: true
+
+server:
+  port: 8081
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info
+  endpoint:
+    health:
+      show-details: always

@@ -1,0 +1,54 @@
+{
+  "groups": [
+    {
+      "name": "service1",
+      "type": "com.example.clientservice.config.ConfigurationProperties",
+      "sourceType": "com.example.clientservice.config.ConfigurationProperties"
+    },
+    {
+      "name": "service1.api",
+      "type": "com.example.clientservice.config.ConfigurationProperties$Api",
+      "sourceType": "com.example.clientservice.config.ConfigurationProperties",
+      "sourceMethod": "getApi()"
+    },
+    {
+      "name": "service1.cache",
+      "type": "com.example.clientservice.config.ConfigurationProperties$Cache",
+      "sourceType": "com.example.clientservice.config.ConfigurationProperties",
+      "sourceMethod": "getCache()"
+    },
+    {
+      "name": "service1.feature",
+      "type": "com.example.clientservice.config.ConfigurationProperties$Feature",
+      "sourceType": "com.example.clientservice.config.ConfigurationProperties",
+      "sourceMethod": "getFeature()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "service1.api.timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "com.example.clientservice.config.ConfigurationProperties$Api",
+      "defaultValue": 0
+    },
+    {
+      "name": "service1.cache.ttl",
+      "type": "java.lang.Integer",
+      "sourceType": "com.example.clientservice.config.ConfigurationProperties$Cache",
+      "defaultValue": 0
+    },
+    {
+      "name": "service1.feature.debug-mode",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.example.clientservice.config.ConfigurationProperties$Feature",
+      "defaultValue": false
+    },
+    {
+      "name": "service1.feature.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.example.clientservice.config.ConfigurationProperties$Feature",
+      "defaultValue": false
+    }
+  ],
+  "hints": []
+}

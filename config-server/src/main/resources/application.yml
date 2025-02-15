@@ -1,0 +1,77 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/mujeeb1238/spring-config-server
+          default-label: main
+          search-paths: '{application}' #client-service/application-dev.yml
+          clone-on-start: true
+          force-pull: true
+        monitor:
+          github:
+            enabled: true
+  consul:
+   host: localhost
+   port: 8500
+   discovery:
+     instanceId: ${spring.application.name}:${random.value}
+     healthCheckPath: /actuator/health
+     healthCheckInterval: 15s
+     register: true
+     prefer-ip-address: true
+  profiles:
+    active: dev # Default to dev profile
+
+# Common logging configuration
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# Development logging configuration
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+logging:
+  level:
+    org.springframework.cloud.config: DEBUG
+    org.springframework.boot: INFO
+    org.springframework.web: DEBUG
+    root: INFO
+
+# Production logging configuration
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+logging:
+  level:
+    org.springframework.cloud.config: WARN
+    org.springframework.boot: WARN
+    org.springframework.web: WARN
+    root: WARN
+  file:
+    name: /var/log/config-server/application.log
+    max-size: 100MB
+  logback:
+    rollingpolicy:
+      max-history: 30
+      max-file-size: 100MB
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

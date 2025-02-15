@@ -1,0 +1,9 @@
+com\example\clientservice\repository\UserRepository.class
+com\example\clientservice\controller\UserController.class
+com\example\clientservice\ClientServiceApplication.class
+com\example\clientservice\config\ConfigurationProperties.class
+com\example\clientservice\config\ConfigurationProperties$Cache.class
+META-INF\spring-configuration-metadata.json
+com\example\clientservice\config\ConfigurationProperties$Feature.class
+com\example\clientservice\model\User.class
+com\example\clientservice\config\ConfigurationProperties$Api.class

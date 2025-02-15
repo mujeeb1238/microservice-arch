@@ -1,26 +1,10 @@
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/auth_service_dev
-    username: dev_user
-    password: dev_password
-    driver-class-name: org.postgresql.Driver
-    hikari:
-      maximum-pool-size: 10
-      minimum-idle: 5
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-        dialect: org.hibernate.dialect.PostgreSQLDialect
   application:
     name: auth-service
   config:
-    import: "optional:configserver:http://localhost:8888"
+    import: "optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}"
   profiles:
-    active: dev
+    active: ${SPRING_PROFILES_ACTIVE:dev}
   cloud:
     consul:
       host: localhost
